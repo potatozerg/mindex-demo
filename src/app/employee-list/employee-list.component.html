@@ -1,0 +1,5 @@
+<mat-grid-list class="employee-list" cols="1" gutterSize="5px">
+  <mat-grid-tile *ngFor="let emp of employees">
+    <app-employee [employee]="emp" (sendNotification)="updateEmployee($event)" [employees]="employees"></app-employee>
+  </mat-grid-tile>
+</mat-grid-list>

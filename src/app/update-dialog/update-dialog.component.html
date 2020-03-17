@@ -1,0 +1,32 @@
+<mat-card>
+  <h1 mat-dialog-title>{{title}}</h1>
+  <div mat-dialog-content>
+    <ng-container *ngIf="data.type == 'edit'">
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input matInput [(ngModel)]="firstName">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input matInput [(ngModel)]="lastName">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Position</mat-label>
+        <input matInput [(ngModel)]="position">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Compensation</mat-label>
+        <input matInput [(ngModel)]="compensation" required>
+      </mat-form-field>
+    </ng-container>
+    <ng-container *ngIf="data.type == 'delete'">
+      <p>Permanently Delete Employee {{this.firstName}} {{this.lastName}}?</p>
+      <p>This cannot be undone.</p>
+    </ng-container>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button *ngIf="this.data.type==='edit'" (click)="onConfirmClick()" cdkFocusInitial>Save</button>
+    <button mat-button *ngIf="this.data.type==='delete'" (click)="onConfirmClick()" cdkFocusInitial>OK</button>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+  </div>
+</mat-card>
