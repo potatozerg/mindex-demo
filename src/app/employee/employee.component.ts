@@ -10,7 +10,7 @@ import {Employee} from '../employee';
 
 export class EmployeeComponent {
   @Input() employee: Employee;
-  @Input() employees: Employees;
+  @Input() employees: Employee[];
   @Output() sendNotification = new EventEmitter<any>();
   constructor() {
   }

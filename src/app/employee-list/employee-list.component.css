@@ -1,3 +1,7 @@
+.employee {
+  margin: 20px;
+}
+
 app-employee {
   width: 100%;
 }

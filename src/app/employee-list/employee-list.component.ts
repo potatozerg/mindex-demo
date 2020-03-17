@@ -34,15 +34,16 @@ export class EmployeeListComponent implements OnInit {
   }
 
   updateEmployee(event) {
+    let dialogRef;
     if (event.type === 'edit') {
-      const dialogRef = this.dialog.open(UpdateDialogComponent, {
+      dialogRef = this.dialog.open(UpdateDialogComponent, {
         width: '300px',
-        data: { type: event.type, empData: this.getEmpData(event.id) };
+        data: { type: event.type, empData: this.getEmpData(event.id) }
       });
     } else {
-      const dialogRef = this.dialog.open(UpdateDialogComponent, {
+      dialogRef = this.dialog.open(UpdateDialogComponent, {
         width: '500px',
-        data: { type: event.type, empData: this.getEmpData(event.id) };
+        data: { type: event.type, empData: this.getEmpData(event.id) }
       });
     }
     dialogRef.afterClosed().subscribe(result => {
