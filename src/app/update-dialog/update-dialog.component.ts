@@ -7,7 +7,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   styleUrls: ['./update-dialog.component.css']
 })
 export class UpdateDialogComponent implements OnInit {
-  title;
+  title: string;
   firstName: string;
   lastName: string;
   position: string;
@@ -33,12 +33,15 @@ export class UpdateDialogComponent implements OnInit {
     if ((!this.compensation || isNaN(this.compensation)) && this.data.type === 'edit') {
       alert('Enter a valid compensation');
     } else {
-      this.dialogRef.close({type: this.data.type, newEmployeeData: {
-        firstName: this.firstName,
-        lastName: this.lastName,
-        position: this.position,
-        compensation: this.compensation,
-      }});
+      this.dialogRef.close({
+        type: this.data.type,
+        newEmployeeData: {
+          firstName: this.firstName,
+          lastName: this.lastName,
+          position: this.position,
+          compensation: this.compensation,
+        }
+      });
     }
   }
 }
